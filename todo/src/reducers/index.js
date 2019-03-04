@@ -30,8 +30,8 @@ const reducer = (state = initialState, action) => {
 		case DELETE_ITEM:
 			return {
 				...state,
-				todoList: state.todoList.filter((t, i) => {
-					return i !== action.payload;
+				todoList: state.todoList.filter((todo, index) => {
+					return index !== action.payload;
 				})
 			};
 
