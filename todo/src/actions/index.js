@@ -1,4 +1,4 @@
-import { ADD_TODO, TOGGLE_ITEM } from '../reducers';
+import { ADD_TODO, TOGGLE_ITEM, DELETE_ITEM } from '../reducers';
 
 export const addToList = (text) => {
 	return {
@@ -10,6 +10,13 @@ export const addToList = (text) => {
 export const toggleComplete = (index) => {
 	return {
 		type: TOGGLE_ITEM,
+		payload: index
+	};
+};
+
+export const deleteItem = (index) => {
+	return {
+		type: DELETE_ITEM,
 		payload: index
 	};
 };
