@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { addToList } from '../actions';
+import { addToList, clearComplete } from '../actions';
 
 class TodoForm extends Component {
 	constructor() {
@@ -24,6 +24,11 @@ class TodoForm extends Component {
 		});
 	};
 
+	handleClear = (event) => {
+		event.preventDefault();
+		this.props.clearComplete();
+	};
+
 	render() {
 		return (
 			<form>
@@ -35,6 +40,7 @@ class TodoForm extends Component {
 					onChange={this.handleChange}
 				/>
 				<button onClick={this.handleClick}>Add</button>
+				<button onClick={this.handleClear}>Clear completed</button>
 			</form>
 		);
 	}
@@ -48,7 +54,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
 	return {
-		addToList: (text) => dispatch(addToList(text))
+		addToList: (text) => dispatch(addToList(text)),
+		clearComplete: () => dispatch(clearComplete())
 	};
 };
 

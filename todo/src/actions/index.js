@@ -1,4 +1,4 @@
-import { ADD_TODO, TOGGLE_ITEM, DELETE_ITEM } from '../reducers';
+import { ADD_TODO, TOGGLE_ITEM, DELETE_ITEM, CLEAR_COMPLETE } from '../reducers';
 
 export const addToList = (text) => {
 	return {
@@ -18,5 +18,11 @@ export const deleteItem = (index) => {
 	return {
 		type: DELETE_ITEM,
 		payload: index
+	};
+};
+
+export const clearComplete = () => {
+	return {
+		type: CLEAR_COMPLETE
 	};
 };
